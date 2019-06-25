@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/buttons_page.dart';
+import 'widgets/textfield_page.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -58,17 +59,16 @@ class HomePageState extends State<HomePage> {
                 setState(() {
                   highlightWidget = ButtonsPage();
                 });
-                // Update the state of the app
-                // ...
                 // Then close the drawer
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('Item 2'),
+              title: Text('Text Field'),
               onTap: () {
-                // Update the state of the app
-                // ...
+                setState(() {
+                  highlightWidget = TextFieldPage();
+                });
                 // Then close the drawer
                 Navigator.pop(context);
               },
