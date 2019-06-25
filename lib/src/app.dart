@@ -1,5 +1,6 @@
+import 'package:brewery_flutter_widget/src/widgets/flatbutton_page.dart';
 import 'package:flutter/material.dart';
-import 'widgets/buttons_page.dart';
+import 'widgets/raisedbutton_page.dart';
 import 'widgets/textfield_page.dart';
 
 class App extends StatelessWidget {
@@ -54,10 +55,20 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             ListTile(
-              title: Text('Button'),
+              title: Text('Raised Button'),
               onTap: () {
                 setState(() {
-                  highlightWidget = ButtonsPage();
+                  highlightWidget = RaisedButtonPage();
+                });
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Flat Button'),
+              onTap: () {
+                setState(() {
+                  highlightWidget = FlatButtonPage();
                 });
                 // Then close the drawer
                 Navigator.pop(context);
