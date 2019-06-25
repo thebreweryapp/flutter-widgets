@@ -2,6 +2,7 @@ import 'package:brewery_flutter_widget/src/widgets/flatbutton_page.dart';
 import 'package:flutter/material.dart';
 import 'widgets/raisedbutton_page.dart';
 import 'widgets/textfield_page.dart';
+import 'widgets/iconbutton_page.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -69,6 +70,16 @@ class HomePageState extends State<HomePage> {
               onTap: () {
                 setState(() {
                   highlightWidget = FlatButtonPage();
+                });
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Icon Button'),
+              onTap: () {
+                setState(() {
+                  highlightWidget = IconButtonPage();
                 });
                 // Then close the drawer
                 Navigator.pop(context);
