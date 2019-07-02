@@ -1,4 +1,5 @@
-import 'package:brewery_flutter_widget/src/widgets/flatbutton_page.dart';
+import 'package:brewery_flutter_widget/src/widgets/buttons_page.dart';
+import 'package:brewery_flutter_widget/src/widgets/textfields_page.dart';
 import 'package:flutter/material.dart';
 import 'widgets/buttons_page.dart';
 import 'widgets/textfield_page.dart';
@@ -66,10 +67,10 @@ class HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: Text('Flat Button'),
+              title: Text('Text Fields'),
               onTap: () {
                 setState(() {
-                  highlightWidget = FlatButtonPage();
+                  highlightWidget = TextFieldsPage();
                 });
                 // Then close the drawer
                 Navigator.pop(context);
