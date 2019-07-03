@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'widgets/buttons_page.dart';
 import 'widgets/textfield_page.dart';
 import 'widgets/iconbutton_page.dart';
+import 'widgets/drawer_header.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -50,8 +51,10 @@ class HomePageState extends State<HomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Text('Drawer Header'),
+            ProfileDrawerHeader(
+              profileUrl:
+                  "https://lh3.googleusercontent.com/a/default-user=s56-c-k-no",
+              text: 'John Doe',
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
