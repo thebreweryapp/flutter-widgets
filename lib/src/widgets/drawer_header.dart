@@ -8,7 +8,6 @@ class ProfileDrawerHeader extends StatelessWidget {
   final EdgeInsetsGeometry margin;
   final Duration duration;
   final Curve curve;
-  final Widget child;
   final String text;
   final Color textColor;
   final String profileUrl;
@@ -23,7 +22,6 @@ class ProfileDrawerHeader extends StatelessWidget {
     this.text = "",
     this.textColor = Colors.white,
     this.profileUrl = "",
-    @required this.child,
   }) : super(key: key);
 
   @override
@@ -39,9 +37,9 @@ class ProfileDrawerHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Container(
-              margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
-              width: 60.0,
-              height: 60.0,
+              margin: EdgeInsets.only(top: 25.0, bottom: 15.0),
+              width: 65.0,
+              height: 65.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: new DecorationImage(
