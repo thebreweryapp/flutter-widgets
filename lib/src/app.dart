@@ -3,7 +3,7 @@ import 'package:brewery_flutter_widget/src/widgets/textfields_page.dart';
 import 'package:flutter/material.dart';
 import 'widgets/buttons_page.dart';
 import 'widgets/textfields_page.dart';
-import 'widgets/iconbutton_page.dart';
+import 'widgets/cards_page.dart';
 import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
 
@@ -43,7 +43,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
-      body: Center(child: highlightWidget),
+      body: Container(child: highlightWidget),
       drawer: BreweryDrawer(
         drawerHeader: ProfileDrawerHeader(
           profileUrl:
@@ -75,10 +75,10 @@ class HomePageState extends State<HomePage> {
             },
           ),
           ListTile(
-            title: Text('Icon Button'),
+            title: Text('Cards'),
             onTap: () {
               setState(() {
-                highlightWidget = IconButtonPage();
+                highlightWidget = CardsPage();
               });
               // Then close the drawer
               Navigator.pop(context);

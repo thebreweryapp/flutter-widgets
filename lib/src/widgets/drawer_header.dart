@@ -43,7 +43,7 @@ class ProfileDrawerHeader extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: new DecorationImage(
-                  fit: BoxFit.fill,
+                  fit: BoxFit.contain,
                   image: new NetworkImage(profileUrl),
                 ),
               ),
