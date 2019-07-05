@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 
-class LargeCard extends StatelessWidget {
+class BreweryMediumCard extends StatelessWidget {
   final Image image;
   final String title;
-  final String desc;
   final Color titleColor;
   final double titleFontSize;
-  final VoidCallback leftButtonOnPressed;
-  final VoidCallback rightButtonOnPressed;
-  final String leftButtonMsg;
-  final String rightButtonMsg;
   final double elevation;
   final MainAxisAlignment buttonAlignment;
+  final List<IconButton> iconButtons;
 
-  const LargeCard({
+  const BreweryMediumCard({
     Key key,
     this.image,
     this.title = "",
-    this.desc = "",
     this.titleColor = Colors.white,
     this.titleFontSize = 16,
-    @required this.leftButtonOnPressed,
-    @required this.rightButtonOnPressed,
-    this.leftButtonMsg = "Button",
-    this.rightButtonMsg = "Button",
     this.elevation = 16.0,
     this.buttonAlignment = MainAxisAlignment.end,
+    this.iconButtons,
   }) : super(key: key);
 
   bool shouldShowImage() {
     return image != null;
+  }
+
+  bool shouldShowButtons() {
+    return iconButtons != null;
   }
 
   @override
@@ -37,7 +33,7 @@ class LargeCard extends StatelessWidget {
     return Material(
       elevation: elevation,
       child: ConstrainedBox(
-        constraints: BoxConstraints(minHeight: 300, maxHeight: 300),
+        constraints: BoxConstraints(minHeight: 225, maxHeight: 225),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -67,40 +63,11 @@ class LargeCard extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10),
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  desc,
-                  textAlign: TextAlign.left,
-                  maxLines: 2,
-                ),
-              ),
-            ),
-            Divider(
-              height: 1,
-            ),
-            Row(
-              mainAxisAlignment: buttonAlignment,
-              children: <Widget>[
-                FlatButton(
-                  child: Text(
-                    leftButtonMsg,
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                  onPressed: leftButtonOnPressed,
-                  textColor: Colors.blue,
-                ),
-                FlatButton(
-                  child: Text(
-                    rightButtonMsg,
-                    style: TextStyle(color: Colors.blue),
-                  ),
-                  onPressed: rightButtonOnPressed,
-                )
-              ],
-            )
+            if (shouldShowButtons())
+              Row(
+                mainAxisAlignment: buttonAlignment,
+                children: iconButtons,
+              )
           ],
         ),
       ),
