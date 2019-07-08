@@ -9,6 +9,13 @@ class BreweryDrawer extends StatelessWidget {
 
   final String semanticLabel;
 
+  final Color dividerColor;
+
+  /// Determins if the footer widget is trailing with the list items
+  /// or sticky at the bottom of the drawer.
+  ///
+  final bool stickyFooter;
+
   const BreweryDrawer({
     Key key,
     this.elevation = 16.0,
@@ -16,6 +23,8 @@ class BreweryDrawer extends StatelessWidget {
     this.drawerItems,
     this.drawerFooter,
     this.semanticLabel,
+    this.stickyFooter = true,
+    this.dividerColor = Colors.grey,
   })  : assert(elevation != null && elevation >= 0.0),
         super(key: key);
 
@@ -35,26 +44,56 @@ class BreweryDrawer extends StatelessWidget {
     return Drawer(
       child: new Column(
         mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          new Expanded(
-            child: ListView(
-              children: createDrawerListItems(),
-            ),
-          ),
-          if (shouldShowFooter())
-            new Column(
-              children: <Widget>[
-                Divider(
-                  height: 1,
-                ),
-                new Align(
-                  alignment: Alignment.bottomCenter,
-                  child: drawerFooter,
-                ),
-              ],
-            )
-        ],
+        children: _createDrawerItems(),
       ),
     );
+  }
+
+  List<Widget> _createDrawerItems() {
+    var tempDrawerItems = <Widget>[];
+
+    if (shouldShowFooter()) {
+      if (stickyFooter) {
+        tempDrawerItems.add(Expanded(
+          child: ListView(
+            children: createDrawerListItems(),
+          ),
+        ));
+        tempDrawerItems.add(new Column(
+          children: <Widget>[
+            Divider(
+              height: 1,
+              color: dividerColor,
+            ),
+            new Align(
+              alignment: Alignment.bottomCenter,
+              child: drawerFooter,
+            ),
+          ],
+        ));
+      } else {
+        var drawerListItems = <Widget>[];
+
+        drawerListItems.add(drawerHeader);
+        drawerListItems.addAll(drawerItems);
+        drawerListItems.add(Divider(
+          height: 1,
+        ));
+        drawerListItems.add(drawerFooter);
+
+        tempDrawerItems.add(Expanded(
+            child: ListView(
+          children: drawerListItems,
+        )));
+      }
+    } else {
+      tempDrawerItems.add(Expanded(
+        child: ListView(
+          children: createDrawerListItems(),
+        ),
+      ));
+    }
+
+    return tempDrawerItems;
   }
 }
