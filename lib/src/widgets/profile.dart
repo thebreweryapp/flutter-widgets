@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'single_line_item.dart';
 
 class Profile extends StatelessWidget {
   final Image image;
   final String name;
   final String email;
+  final List<SingleLineItemData> singleLineItemDataList;
 
   const Profile({
     Key key,
     this.image,
     this.name = "",
     this.email = "",
+    this.singleLineItemDataList,
   });
 
   bool shouldShowImage() {
@@ -54,8 +57,25 @@ class Profile extends StatelessWidget {
                 email,
                 style: TextStyle(fontSize: 16, color: Color(0xFFB0BEC5)),
               ),
-            )
+            ),
+            Container(
+              child: createSingleLineItems(),
+            ),
           ],
         )));
+  }
+
+  Widget createSingleLineItems() {
+    var items = <Widget>[];
+    for (final singleLineItemData in singleLineItemDataList) {
+      items.add(SingleLineItem(
+        singleLineItemData: singleLineItemData,
+      ));
+    }
+
+    return Expanded(
+        child: ListView(
+      children: items,
+    ));
   }
 }

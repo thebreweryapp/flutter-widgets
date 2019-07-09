@@ -86,7 +86,7 @@ class HomePageState extends State<HomePage> {
             },
           ),
           ListTile(
-            title: Text('Proile'),
+            title: Text('Profile'),
             onTap: () {
               setState(() {
                 highlightWidget = ProfilePage();
