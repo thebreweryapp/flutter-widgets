@@ -6,6 +6,7 @@ import 'widgets/textfields_page.dart';
 import 'widgets/cards_page.dart';
 import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
+import 'widgets/profile_page.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -79,6 +80,16 @@ class HomePageState extends State<HomePage> {
             onTap: () {
               setState(() {
                 highlightWidget = CardsPage();
+              });
+              // Then close the drawer
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Proile'),
+            onTap: () {
+              setState(() {
+                highlightWidget = ProfilePage();
               });
               // Then close the drawer
               Navigator.pop(context);
