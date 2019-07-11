@@ -7,6 +7,7 @@ import 'widgets/cards_page.dart';
 import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
 import 'widgets/profile_page.dart';
+import 'widgets/brewery_login.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -90,6 +91,16 @@ class HomePageState extends State<HomePage> {
             onTap: () {
               setState(() {
                 highlightWidget = ProfilePage();
+              });
+              // Then close the drawer
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Login Template'),
+            onTap: () {
+              setState(() {
+                highlightWidget = BreweryLoginWidget();
               });
               // Then close the drawer
               Navigator.pop(context);

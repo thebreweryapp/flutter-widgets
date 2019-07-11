@@ -13,6 +13,8 @@ class PrimaryButton extends StatelessWidget {
   Color _splashColor;
   double _elevation;
   double _highlightElevation;
+  double _minWidth;
+  double _minHeight;
   EdgeInsetsGeometry padding;
 
   PrimaryButton({
@@ -29,6 +31,8 @@ class PrimaryButton extends StatelessWidget {
     String text,
     double elevation = 0.0,
     double highlightElevation = 0.0,
+    double minWidth = 88.0,
+    double minHeight = 36.0,
     EdgeInsetsGeometry padding,
   })  : _onPressed = onPressed,
         _text = text,
@@ -44,23 +48,30 @@ class PrimaryButton extends StatelessWidget {
         _elevation = elevation,
         _highlightElevation = highlightElevation,
         padding = padding,
+        _minWidth = minWidth == null ? 88.0 : minWidth,
+        _minHeight = minHeight == null ? 36.0 : minHeight,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
-        color: _color == null ? Color(0xFF0097EB) : _color,
-        splashColor: _splashColor == null ? Color(0xFF00669F) : _splashColor,
-        disabledColor:
-            _disabledColor == null ? Color(0xFFCFD8DC) : _disabledColor,
-        textColor: _textColor == null ? Color(0xFFFFFFFF) : _textColor,
-        onPressed: _disabled ? null : _onPressed,
-        elevation: _elevation,
-        padding: padding,
-        child: Text(
-          _text,
-          style: TextStyle(color: _disabled ? _disabledTextColor : _textColor),
+      child: ButtonTheme(
+        minWidth: _minWidth,
+        height: _minHeight,
+        child: RaisedButton(
+          color: _color == null ? Color(0xFF0097EB) : _color,
+          splashColor: _splashColor == null ? Color(0xFF00669F) : _splashColor,
+          disabledColor:
+              _disabledColor == null ? Color(0xFFCFD8DC) : _disabledColor,
+          textColor: _textColor == null ? Color(0xFFFFFFFF) : _textColor,
+          onPressed: _disabled ? null : _onPressed,
+          elevation: _elevation,
+          padding: padding,
+          child: Text(
+            _text,
+            style:
+                TextStyle(color: _disabled ? _disabledTextColor : _textColor),
+          ),
         ),
       ),
     );
