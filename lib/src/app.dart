@@ -38,8 +38,8 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  String title = "Flutter Demo Home Page";
-  Widget highlightWidget = Text('My Page!');
+  String title = "Brewery";
+  Widget highlightWidget = Center(child: Text('Brewery Flutter Widget!'));
 
   @override
   Widget build(BuildContext context) {

@@ -4,10 +4,17 @@ import 'primary_button.dart';
 
 class BreweryLoginWidget extends StatelessWidget {
   final Image logo;
+  final ValueChanged<String> usernameOnChangeListener;
+  final ValueChanged<String> passwordOnChangeListener;
+  final VoidCallback submitOnPressed;
+  var _controller = TextEditingController();
 
-  const BreweryLoginWidget({
+  BreweryLoginWidget({
     Key key,
     this.logo,
+    this.usernameOnChangeListener,
+    this.passwordOnChangeListener,
+    this.submitOnPressed,
   });
 
   bool shouldShowImage() {
@@ -43,6 +50,8 @@ class BreweryLoginWidget extends StatelessWidget {
                 width: 300,
                 margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
                 child: TextField(
+                  onChanged: usernameOnChangeListener,
+                  controller: _controller,
                   decoration: InputDecoration(
                       border: UnderlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFCFD8DC))),
@@ -52,9 +61,11 @@ class BreweryLoginWidget extends StatelessWidget {
             Container(
                 width: 300,
                 margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
-                child: BreweryPasswordField()),
+                child: BreweryPasswordField(passwordOnChangeListener)),
             PrimaryButton(
-                minWidth: double.infinity, onPressed: () {}, text: 'Login'),
+                minWidth: double.infinity,
+                onPressed: submitOnPressed,
+                text: 'Login'),
           ]),
     );
   }
