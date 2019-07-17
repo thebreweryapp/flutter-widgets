@@ -9,7 +9,16 @@ import 'widgets/brewery_drawer.dart';
 import 'widgets/profile_page.dart';
 import 'widgets/brewery_login.dart';
 
+import 'resources/utils/utils.dart';
+
+import 'package:parse_server_sdk/parse_server_sdk.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class App extends StatelessWidget {
+  App() {
+    initParse();
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,6 +38,13 @@ class App extends StatelessWidget {
       ),
       home: HomePage(),
     );
+  }
+
+  initParse() async {
+    await Parse().initialize(parseAppId, parseServerUrl,
+        masterKey: parseMasterId,
+        debug: true,
+        coreStore: await CoreStoreSembastImp.getInstance());
   }
 }
 
