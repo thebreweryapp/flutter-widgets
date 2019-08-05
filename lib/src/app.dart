@@ -8,6 +8,7 @@ import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
 import 'widgets/profile_page.dart';
 import 'widgets/brewery_login.dart';
+import 'widgets/icons_page.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -105,7 +106,17 @@ class HomePageState extends State<HomePage> {
               // Then close the drawer
               Navigator.pop(context);
             },
-          )
+          ),
+          ListTile(
+            title: Text('Icons'),
+            onTap: () {
+              setState(() {
+                highlightWidget = IconsPage();
+              });
+              // Then close the drawer
+              Navigator.pop(context);
+            },
+          ),
         ],
         drawerFooter: ListTile(
           title: Text('Sample Menu'),
