@@ -3,8 +3,16 @@ import 'widgets/brewery_login.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class App extends StatelessWidget {
-  App() {
+class App extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => AppState();
+}
+
+class AppState extends State<App> {
+  var _username = "";
+  var _password = "";
+
+  AppState() {
     initParse();
   }
   // This widget is the root of your application.
@@ -28,7 +36,18 @@ class App extends StatelessWidget {
         body: Container(
           child: Column(
             children: <Widget>[
-              BreweryLoginWidget(),
+              BreweryLoginWidget(
+                usernameHint: "Username",
+                usernameOnChangeListener: (text) {
+                  _username = text;
+                },
+                passwordOnChangeListener: (text) {
+                  _password = text;
+                },
+                submitOnPressed: () {
+                  login();
+                },
+              ),
             ],
             mainAxisAlignment: MainAxisAlignment.center,
           ),
@@ -42,5 +61,13 @@ class App extends StatelessWidget {
         masterKey: DotEnv().env['master_key'],
         debug: true,
         coreStore: await CoreStoreSembastImp.getInstance());
+  }
+
+  login() async {
+    var user = await ParseUser(_username, _password, "").login();
+    if (user.success) {
+      // TODO login
+      print("LOGIN HERE");
+    }
   }
 }

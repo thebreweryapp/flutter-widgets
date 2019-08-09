@@ -4,14 +4,19 @@ import 'primary_button.dart';
 
 class BreweryLoginWidget extends StatelessWidget {
   final Image logo;
+  final usernameHint;
   final ValueChanged<String> usernameOnChangeListener;
   final ValueChanged<String> passwordOnChangeListener;
   final VoidCallback submitOnPressed;
-  var _controller = TextEditingController();
+  var usernameController = TextEditingController();
+  var passwordController;
+
+  get username => usernameController.text;
 
   BreweryLoginWidget({
     Key key,
     this.logo,
+    this.usernameHint,
     this.usernameOnChangeListener,
     this.passwordOnChangeListener,
     this.submitOnPressed,
@@ -51,17 +56,18 @@ class BreweryLoginWidget extends StatelessWidget {
                 margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
                 child: TextField(
                   onChanged: usernameOnChangeListener,
-                  controller: _controller,
+                  controller: usernameController,
                   decoration: InputDecoration(
                       border: UnderlineInputBorder(
                           borderSide: BorderSide(color: Color(0xFFCFD8DC))),
-                      hintText: 'Email'),
+                      hintText: usernameHint),
                   cursorColor: Color(0xFF000000),
                 )),
             Container(
-                width: 300,
-                margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
-                child: BreweryPasswordField(passwordOnChangeListener)),
+              width: 300,
+              margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
+              child: BreweryPasswordField(passwordOnChangeListener),
+            ),
             PrimaryButton(
                 minWidth: double.infinity,
                 onPressed: submitOnPressed,

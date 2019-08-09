@@ -33,15 +33,16 @@ class BreweryPasswordFieldState extends State<BreweryPasswordField> {
     return new Container(
       child: new Stack(
         children: <Widget>[
-          new TextFormField(
+          new TextField(
             decoration: const InputDecoration(
               labelText: 'Password',
             ),
-            validator: (val) => val.length < 6 ? 'Password too short.' : null,
-            onSaved: (val) => {
-                  passwordOnChangeListener(val),
-                  _password = val,
-                },
+            onChanged: passwordOnChangeListener,
+            // validator: (val) => val.length < 6 ? 'Password too short.' : null,
+            // onSaved: (val) => {
+            //   passwordOnChangeListener(val),
+            //   _password = val,
+            // },
             obscureText: _obscureText,
             controller: _controller,
           ),
