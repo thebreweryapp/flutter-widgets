@@ -8,236 +8,240 @@ class IconsPage extends StatelessWidget {
       crossAxisSpacing: 10.0,
       crossAxisCount: 4,
       children: <Widget>[
-        LabeledIconWidget(
-            name: "star", iconData: Icons.star, materialColor: Colors.yellow),
-        LabeledIconWidget(name: "access_alarm", iconData: Icons.access_alarm),
-        LabeledIconWidget(
+        LabeledIcon(name: "star", iconData: Icons.star, color: Colors.yellow),
+        LabeledIcon(name: "access_alarm", iconData: Icons.access_alarm),
+        LabeledIcon(
           name: "accessibility",
           iconData: Icons.accessibility,
-          materialColor: Colors.black54,
+          color: Colors.black54,
         ),
-        LabeledIconWidget(name: "accessible", iconData: Icons.accessible),
-        LabeledIconWidget(
+        LabeledIcon(name: "accessible", iconData: Icons.accessible),
+        LabeledIcon(
           name: "account_balance_wallet",
           iconData: Icons.account_balance_wallet,
-          materialColor: Colors.brown,
+          color: Colors.brown,
         ),
-        LabeledIconWidget(
-            name: "add", iconData: Icons.add, materialColor: Colors.green),
-        LabeledIconWidget(name: "add_a_photo", iconData: Icons.add_a_photo),
-        LabeledIconWidget(
+        LabeledIcon(name: "add", iconData: Icons.add, color: Colors.green),
+        LabeledIcon(name: "add_a_photo", iconData: Icons.add_a_photo),
+        LabeledIcon(
           name: "all_inclusive",
           iconData: Icons.all_inclusive,
-          materialColor: Colors.cyan,
+          color: Colors.cyan,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "apps",
           iconData: Icons.apps,
-          materialColor: Colors.red,
+          color: Colors.red,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "art_track",
           iconData: Icons.art_track,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "assessment",
           iconData: Icons.assessment,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "attach_file",
           iconData: Icons.attach_file,
-          materialColor: Colors.green,
+          color: Colors.green,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "backup",
           iconData: Icons.backup,
-          materialColor: Colors.blue,
+          color: Colors.blue,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "battery_alert",
           iconData: Icons.battery_alert,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "bluetooth",
           iconData: Icons.bluetooth,
-          materialColor: Colors.blue,
+          color: Colors.blue,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "bug_report",
           iconData: Icons.bug_report,
-          materialColor: Colors.indigo,
+          color: Colors.indigo,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "build",
           iconData: Icons.build,
-          materialColor: Colors.grey,
+          color: Colors.grey,
         ),
-        LabeledIconWidget(name: "business", iconData: Icons.business),
-        LabeledIconWidget(
+        LabeledIcon(name: "business", iconData: Icons.business),
+        LabeledIcon(
           name: "cached",
           iconData: Icons.cached,
-          materialColor: Colors.green,
+          color: Colors.green,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "cake",
           iconData: Icons.cake,
-          materialColor: Colors.pink,
+          color: Colors.pink,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "calendar_today",
           iconData: Icons.calendar_today,
-          materialColor: Colors.red,
+          color: Colors.red,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "call",
           iconData: Icons.call,
-          materialColor: Colors.green,
+          color: Colors.green,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "call_end",
           iconData: Icons.call_end,
-          materialColor: Colors.red,
+          color: Colors.red,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "call_merge",
           iconData: Icons.call_merge,
-          materialColor: Colors.orange,
+          color: Colors.orange,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "camera_alt",
           iconData: Icons.camera_alt,
-          materialColor: Colors.grey,
+          color: Colors.grey,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "cancel",
           iconData: Icons.cancel,
-          materialColor: Colors.red,
+          color: Colors.red,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "card_travel",
           iconData: Icons.card_travel,
-          materialColor: Colors.brown,
+          color: Colors.brown,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "chat",
           iconData: Icons.chat,
-          materialColor: Colors.lightBlue,
+          color: Colors.lightBlue,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "check_box",
           iconData: Icons.check_box,
-          materialColor: Colors.black,
+          color: Colors.black,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "cloud",
           iconData: Icons.cloud,
-          materialColor: Colors.grey,
+          color: Colors.grey,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "computer",
           iconData: Icons.computer,
-          materialColor: Colors.black87,
+          color: Colors.black87,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "credit_card",
           iconData: Icons.credit_card,
-          materialColor: Colors.orange,
+          color: Colors.orange,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "delete",
           iconData: Icons.delete,
-          materialColor: Colors.grey,
+          color: Colors.grey,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "directions_bus",
           iconData: Icons.directions_bus,
-          materialColor: Colors.yellow,
+          color: Colors.yellow,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "directions_run",
           iconData: Icons.directions_run,
         ),
-        LabeledIconWidget(
+        LabeledIcon(
           name: "directions_railway",
           iconData: Icons.directions_railway,
-          materialColor: Colors.blue,
-        ),
-        LabeledIconWidget(
-          name: "favorite",
-          iconData: Icons.favorite,
-          materialColor: Colors.pink,
-        ),
-        LabeledIconWidget(
-          name: "filter_none",
-          iconData: Icons.filter_none,
-          materialColor: Colors.grey,
-        ),
-        LabeledIconWidget(
-          name: "fingerprint",
-          iconData: Icons.fingerprint,
-          materialColor: Colors.deepOrange,
-        ),
-        LabeledIconWidget(
-          name: "flag",
-          iconData: Icons.flag,
-          materialColor: Colors.amber,
-        ),
-        Icon(
-          Icons.flash_on,
-          color: Colors.yellow,
-        ),
-        Icon(
-          Icons.folder,
-          color: Colors.brown,
-        ),
-        Icon(
-          Icons.format_size,
-        ),
-        Icon(
-          Icons.gps_fixed,
-          color: Colors.black87,
-        ),
-        Icon(
-          Icons.group,
           color: Colors.blue,
         ),
-        Icon(
-          Icons.history,
-          color: Colors.orange,
+        LabeledIcon(
+          name: "favorite",
+          iconData: Icons.favorite,
+          color: Colors.pink,
         ),
-        Icon(
-          Icons.insert_link,
+        LabeledIcon(
+          name: "filter_none",
+          iconData: Icons.filter_none,
           color: Colors.grey,
         ),
-        Icon(
-          Icons.keyboard,
-        ),
-        Icon(
-          Icons.layers,
-          color: Colors.indigo,
-        ),
-        Icon(
-          Icons.link,
-          color: Colors.grey,
-        ),
-        Icon(
-          Icons.local_hospital,
-          color: Colors.red,
-        ),
-        Icon(
-          Icons.lock_outline,
-          color: Colors.green,
-        ),
-        Icon(
-          Icons.lock_open,
-          color: Colors.yellow,
-        ),
-        Icon(
-          Icons.mail,
+        LabeledIcon(
+          name: "fingerprint",
+          iconData: Icons.fingerprint,
           color: Colors.deepOrange,
         ),
-        Icon(
-          Icons.memory,
+        LabeledIcon(
+          name: "flag",
+          iconData: Icons.flag,
+          color: Colors.amber,
+        ),
+        LabeledIcon(
+            name: "flash_on", iconData: Icons.flash_on, color: Colors.yellow),
+        LabeledIcon(
+            name: "folder", iconData: Icons.folder, color: Colors.brown),
+        LabeledIcon(name: "format_size", iconData: Icons.format_size),
+        LabeledIcon(
+          name: "gps_fixed",
+          iconData: Icons.format_size,
+          color: Colors.black87,
+        ),
+        LabeledIcon(
+          name: "group",
+          iconData: Icons.group,
+          color: Colors.blue,
+        ),
+        LabeledIcon(
+          name: "history",
+          iconData: Icons.history,
+          color: Colors.orange,
+        ),
+        LabeledIcon(
+          name: "insert_link",
+          iconData: Icons.insert_link,
+          color: Colors.grey,
+        ),
+        LabeledIcon(
+          name: "keyboard",
+          iconData: Icons.keyboard,
+        ),
+        LabeledIcon(
+          name: "layers",
+          iconData: Icons.layers,
+          color: Colors.indigo,
+        ),
+        LabeledIcon(
+          name: "link",
+          iconData: Icons.link,
+          color: Colors.grey,
+        ),
+        LabeledIcon(
+          name: "local_hospital",
+          iconData: Icons.local_hospital,
+          color: Colors.red,
+        ),
+        LabeledIcon(
+          name: "lock_outline",
+          iconData: Icons.lock_outline,
+          color: Colors.green,
+        ),
+        LabeledIcon(
+          name: "lock_open",
+          iconData: Icons.lock_open,
+          color: Colors.yellow,
+        ),
+        LabeledIcon(
+          name: "mail",
+          iconData: Icons.mail,
+          color: Colors.deepOrange,
+        ),
+        LabeledIcon(
+          name: "memory",
+          iconData: Icons.memory,
           color: Colors.green,
         ),
       ],

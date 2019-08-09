@@ -1,4 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'src/app.dart';
 
-void main() => runApp(App());
+Future main() async {
+  await DotEnv().load('.env.craft_test_app');
+  runApp(App());
+}
