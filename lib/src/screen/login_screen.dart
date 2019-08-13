@@ -1,4 +1,6 @@
+import 'package:brewery_flutter_widget/src/util/login_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../widgets/brewery_login.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import '../routes.dart';
@@ -40,10 +42,10 @@ class LoginState extends State<LoginScreen> {
 
   login(BuildContext context) async {
     var user = await ParseUser(_username, _password, "").login();
+    var token = (user.result as ParseUser).sessionToken;
     if (user.success) {
+      await LoginStorage.saveToken(token);
       Navigator.pushNamed(context, Routes.home);
-      // TODO login
-      print("LOGIN HERE");
     }
   }
 }

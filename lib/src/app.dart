@@ -1,4 +1,5 @@
 import 'package:brewery_flutter_widget/src/home.dart';
+import 'package:brewery_flutter_widget/src/util/login_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -17,15 +18,6 @@ class AppState extends State<App> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // var user = ParseUser.currentUser();
-
-    // var screen;
-
-    // if (user != null) {
-    //   screen = HomePage();
-    // } else {
-    //   screen = LoginScreen();
-    // }
     return MaterialApp(
       onGenerateRoute: _routes,
       title: 'Flutter Demo',
@@ -41,7 +33,15 @@ class AppState extends State<App> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: FutureBuilder<String>(
+        future: LoginStorage.getToken(),
+        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+          if (snapshot.hasData) {
+            return HomePage();
+          }
+          return LoginScreen();
+        },
+      ),
     );
   }
 
