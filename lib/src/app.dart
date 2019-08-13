@@ -1,7 +1,9 @@
+import 'package:brewery_flutter_widget/src/home.dart';
 import 'package:flutter/material.dart';
-import 'widgets/brewery_login.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'screen/login_screen.dart';
+import 'routes.dart';
 
 class App extends StatefulWidget {
   @override
@@ -9,16 +11,23 @@ class App extends StatefulWidget {
 }
 
 class AppState extends State<App> {
-  var _username = "";
-  var _password = "";
-
   AppState() {
     initParse();
   }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // var user = ParseUser.currentUser();
+
+    // var screen;
+
+    // if (user != null) {
+    //   screen = HomePage();
+    // } else {
+    //   screen = LoginScreen();
+    // }
     return MaterialApp(
+      onGenerateRoute: _routes,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -32,27 +41,7 @@ class AppState extends State<App> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              BreweryLoginWidget(
-                usernameHint: "Username",
-                usernameOnChangeListener: (text) {
-                  _username = text;
-                },
-                passwordOnChangeListener: (text) {
-                  _password = text;
-                },
-                submitOnPressed: () {
-                  login();
-                },
-              ),
-            ],
-            mainAxisAlignment: MainAxisAlignment.center,
-          ),
-        ),
-      ),
+      home: LoginScreen(),
     );
   }
 
@@ -63,11 +52,11 @@ class AppState extends State<App> {
         coreStore: await CoreStoreSembastImp.getInstance());
   }
 
-  login() async {
-    var user = await ParseUser(_username, _password, "").login();
-    if (user.success) {
-      // TODO login
-      print("LOGIN HERE");
+  Route _routes(RouteSettings settings) {
+    if (settings.name == Routes.home) {
+      return MaterialPageRoute(builder: (context) {
+        return HomePage();
+      });
     }
   }
 }
