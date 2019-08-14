@@ -1,7 +1,7 @@
 import 'package:brewery_flutter_widget/src/widgets/brewery_labeled_icon.dart';
 import 'package:flutter/material.dart';
 
-class IconsPage extends StatelessWidget {
+class IconsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(

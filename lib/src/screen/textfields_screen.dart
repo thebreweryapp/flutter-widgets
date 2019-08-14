@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextFieldsPage extends StatelessWidget {
+class TextFieldsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = TextEditingController();

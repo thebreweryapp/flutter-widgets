@@ -1,13 +1,11 @@
-import 'package:brewery_flutter_widget/src/widgets/buttons_page.dart';
-import 'package:brewery_flutter_widget/src/widgets/textfields_page.dart';
 import 'package:flutter/material.dart';
-import 'widgets/buttons_page.dart';
-import 'widgets/textfields_page.dart';
-import 'widgets/cards_page.dart';
+import 'screen/buttons_screen.dart';
+import 'screen/textfields_screen.dart';
+import 'screen/cards_screen.dart';
 import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
-import 'widgets/profile_page.dart';
-import 'widgets/icons_page.dart';
+import 'screen/profile_screen.dart';
+import 'screen/icons_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -37,7 +35,7 @@ class HomePageState extends State<HomePage> {
             title: Text('Buttons'),
             onTap: () {
               setState(() {
-                highlightWidget = ButtonsPage();
+                highlightWidget = ButtonsScreen();
               });
               // Then close the drawer
               Navigator.pop(context);
@@ -47,7 +45,7 @@ class HomePageState extends State<HomePage> {
             title: Text('Text Fields'),
             onTap: () {
               setState(() {
-                highlightWidget = TextFieldsPage();
+                highlightWidget = TextFieldsScreen();
               });
               // Then close the drawer
               Navigator.pop(context);
@@ -57,7 +55,7 @@ class HomePageState extends State<HomePage> {
             title: Text('Cards'),
             onTap: () {
               setState(() {
-                highlightWidget = CardsPage();
+                highlightWidget = CardsScreen();
               });
               // Then close the drawer
               Navigator.pop(context);
@@ -67,7 +65,7 @@ class HomePageState extends State<HomePage> {
             title: Text('Profile'),
             onTap: () {
               setState(() {
-                highlightWidget = ProfilePage();
+                highlightWidget = ProfileScreen();
               });
               // Then close the drawer
               Navigator.pop(context);
@@ -77,7 +75,7 @@ class HomePageState extends State<HomePage> {
             title: Text('Icons'),
             onTap: () {
               setState(() {
-                highlightWidget = IconsPage();
+                highlightWidget = IconsScreen();
               });
               // Then close the drawer
               Navigator.pop(context);

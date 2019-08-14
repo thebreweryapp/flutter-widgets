@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'brewery_large_card.dart';
-import 'brewery_medium_card.dart';
+import '../widgets/brewery_large_card.dart';
+import '../widgets/brewery_medium_card.dart';
 
-class CardsPage extends StatelessWidget {
+class CardsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

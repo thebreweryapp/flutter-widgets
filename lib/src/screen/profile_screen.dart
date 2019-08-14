@@ -1,8 +1,8 @@
 import 'package:brewery_flutter_widget/src/widgets/single_line_item.dart';
 import 'package:flutter/material.dart';
-import 'profile.dart';
+import '../widgets/profile.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var singleItemDataList = <SingleLineItemData>[];

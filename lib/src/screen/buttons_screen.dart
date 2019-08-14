@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'primary_button.dart';
-import 'secondary_button.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/secondary_button.dart';
 
-class ButtonsPage extends StatelessWidget {
+class ButtonsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
