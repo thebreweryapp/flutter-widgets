@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '../util/alias.dart';
 
 class BreweryPasswordField extends StatefulWidget {
-  ValueChanged<String> passwordOnChangeListener;
+  PasswordChanged passwordOnChangeListener;
 
   BreweryPasswordField(this.passwordOnChangeListener);
 
@@ -13,11 +14,11 @@ class BreweryPasswordField extends StatefulWidget {
 class BreweryPasswordFieldState extends State<BreweryPasswordField> {
   // Initially password is obscure
   bool _obscureText = true;
+  var _errorText;
 
   var _controller = TextEditingController();
 
-  ValueChanged<String> passwordOnChangeListener;
-  String _password;
+  PasswordChanged passwordOnChangeListener;
 
   BreweryPasswordFieldState(this.passwordOnChangeListener);
 
@@ -34,10 +35,19 @@ class BreweryPasswordFieldState extends State<BreweryPasswordField> {
       child: new Stack(
         children: <Widget>[
           new TextField(
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Password',
+              errorText: _errorText,
             ),
-            onChanged: passwordOnChangeListener,
+            onChanged: (text) {
+              setState(() {
+                _errorText = passwordOnChangeListener(text);
+              });
+            },
+            //  onChanged: (text) {
+            //   passwordOnChangeListener
+            // }
+
             // validator: (val) => val.length < 6 ? 'Password too short.' : null,
             // onSaved: (val) => {
             //   passwordOnChangeListener(val),

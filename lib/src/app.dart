@@ -1,5 +1,5 @@
 import 'package:brewery_flutter_widget/src/home.dart';
-import 'package:brewery_flutter_widget/src/util/login_storage.dart';
+import 'package:brewery_flutter_widget/src/screen/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -33,15 +33,16 @@ class AppState extends State<App> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: FutureBuilder<String>(
-        future: LoginStorage.getToken(),
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          if (snapshot.hasData) {
-            return HomePage();
-          }
-          return LoginScreen();
-        },
-      ),
+      home: RegisterScreen(),
+      // home: FutureBuilder<String>(
+      //   future: LoginStorage.getToken(),
+      //   builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+      //     if (snapshot.hasData) {
+      //       return HomePage();
+      //     }
+      //     return RegisterScreen();
+      //   },
+      // ),
     );
   }
 
@@ -56,6 +57,10 @@ class AppState extends State<App> {
     if (settings.name == Routes.home) {
       return MaterialPageRoute(builder: (context) {
         return HomePage();
+      });
+    } else if (settings.name == Routes.login) {
+      return MaterialPageRoute(builder: (context) {
+        return LoginScreen();
       });
     }
   }

@@ -1,20 +1,20 @@
-import 'package:brewery_flutter_widget/src/util/alias.dart';
 import 'package:brewery_flutter_widget/src/widgets/brewery_passwordfield.dart';
 import 'package:flutter/material.dart';
+import '../util/alias.dart';
 import 'primary_button.dart';
 
-class BreweryLoginWidget extends StatelessWidget {
+class BreweryRegisterWidget extends StatelessWidget {
   final Image logo;
   final usernameHint;
   final ValueChanged<String> usernameOnChangeListener;
   final PasswordChanged passwordOnChangeListener;
+
   final VoidCallback submitOnPressed;
-  var usernameController = TextEditingController();
-  var passwordController;
+  final usernameController = TextEditingController();
 
   get username => usernameController.text;
 
-  BreweryLoginWidget({
+  BreweryRegisterWidget({
     Key key,
     this.logo,
     this.usernameHint,
@@ -72,7 +72,7 @@ class BreweryLoginWidget extends StatelessWidget {
             PrimaryButton(
                 minWidth: double.infinity,
                 onPressed: submitOnPressed,
-                text: 'Login'),
+                text: 'Register'),
           ]),
     );
   }
