@@ -4,11 +4,23 @@ import '../util/alias.dart';
 class BreweryPasswordField extends StatefulWidget {
   PasswordChanged passwordOnChangeListener;
 
-  BreweryPasswordField(this.passwordOnChangeListener);
+  final Icon _showPassIcon;
+  final Icon _hidePassIcon;
+  final PasswordChanged _passwordOnChangeListener;
+
+  BreweryPasswordField(
+      {PasswordChanged passwordOnChangeListener,
+      Icon showPassIcon,
+      Icon hidePassIcon})
+      : _passwordOnChangeListener = passwordOnChangeListener,
+        _showPassIcon = showPassIcon,
+        _hidePassIcon = hidePassIcon;
 
   @override
-  BreweryPasswordFieldState createState() =>
-      BreweryPasswordFieldState(passwordOnChangeListener);
+  BreweryPasswordFieldState createState() => BreweryPasswordFieldState(
+      passwordOnChangeListener: _passwordOnChangeListener,
+      showPassIcon: _showPassIcon,
+      hidePassIcon: _hidePassIcon);
 }
 
 class BreweryPasswordFieldState extends State<BreweryPasswordField> {
@@ -18,9 +30,19 @@ class BreweryPasswordFieldState extends State<BreweryPasswordField> {
 
   var _controller = TextEditingController();
 
-  PasswordChanged passwordOnChangeListener;
+  Icon _showPassIcon;
+  Icon _hidePassIcon;
+  PasswordChanged _passwordOnChangeListener;
 
-  BreweryPasswordFieldState(this.passwordOnChangeListener);
+  BreweryPasswordFieldState(
+      {PasswordChanged passwordOnChangeListener,
+      Icon showPassIcon,
+      Icon hidePassIcon})
+      : _passwordOnChangeListener = passwordOnChangeListener,
+        _showPassIcon =
+            showPassIcon == null ? Icon(Icons.lock_outline) : showPassIcon,
+        _hidePassIcon =
+            hidePassIcon == null ? Icon(Icons.lock_open) : hidePassIcon;
 
   // Toggles the password show status
   void _toggle() {
@@ -41,25 +63,16 @@ class BreweryPasswordFieldState extends State<BreweryPasswordField> {
             ),
             onChanged: (text) {
               setState(() {
-                _errorText = passwordOnChangeListener(text);
+                _errorText = _passwordOnChangeListener(text);
               });
             },
-            //  onChanged: (text) {
-            //   passwordOnChangeListener
-            // }
-
-            // validator: (val) => val.length < 6 ? 'Password too short.' : null,
-            // onSaved: (val) => {
-            //   passwordOnChangeListener(val),
-            //   _password = val,
-            // },
             obscureText: _obscureText,
             controller: _controller,
           ),
           new Align(
             alignment: Alignment.centerRight,
             child: new IconButton(
-              icon: Icon(Icons.vpn_key),
+              icon: _obscureText ? _showPassIcon : _hidePassIcon,
               tooltip: 'Show password',
               onPressed: _toggle,
             ),

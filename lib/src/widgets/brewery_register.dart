@@ -67,7 +67,8 @@ class BreweryRegisterWidget extends StatelessWidget {
             Container(
               width: 300,
               margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
-              child: BreweryPasswordField(passwordOnChangeListener),
+              child: BreweryPasswordField(
+                  passwordOnChangeListener: passwordOnChangeListener),
             ),
             PrimaryButton(
                 minWidth: double.infinity,
