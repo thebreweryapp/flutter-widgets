@@ -18,9 +18,21 @@ class RegisterState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Container(
         child: Column(
           children: <Widget>[
+            Text(
+              'Register',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            ),
             BreweryRegisterWidget(
               usernameHint: "Email",
               usernameOnChangeListener: (text) {
@@ -43,6 +55,11 @@ class RegisterState extends State<RegisterScreen> {
                 login(context);
                 // Navigator.pushNamed(context, Routes.home);
               },
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, right: 20.0),
+              child: Text(
+                  'By signing up I agree to Craft’s Terms of Service and Privacy Policy'),
             ),
           ],
           mainAxisAlignment: MainAxisAlignment.center,

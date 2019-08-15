@@ -19,6 +19,10 @@ class LoginState extends State<LoginScreen> {
       body: Container(
         child: Column(
           children: <Widget>[
+            Text(
+              'CRAFT',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+            ),
             BreweryLoginWidget(
               usernameHint: "Username",
               usernameOnChangeListener: (text) {
@@ -32,6 +36,14 @@ class LoginState extends State<LoginScreen> {
                 // Navigator.pushNamed(context, Routes.home);
               },
             ),
+            Text('No account yet?'),
+            FlatButton(
+              child: Text('Register Now'),
+              textColor: Colors.blue,
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.register);
+              },
+            )
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),
