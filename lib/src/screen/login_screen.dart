@@ -53,6 +53,7 @@ class LoginState extends State<LoginScreen> {
 
   login(BuildContext context) async {
     var user = await ParseUser(_username, _password, "").login();
+
     var token = (user.result as ParseUser).sessionToken;
     if (user.success) {
       await SharedPreferencesHelper.setToken(token);

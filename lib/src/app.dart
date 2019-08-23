@@ -37,10 +37,10 @@ class AppState extends State<App> {
       home: FutureBuilder<String>(
         future: SharedPreferencesHelper.getToken(),
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          if (snapshot.hasData) {
-            return HomePage();
-          }
-          return LoginScreen();
+          // if (snapshot.hasData) {
+          return HomePage();
+          // }
+          // return LoginScreen();
         },
       ),
     );
