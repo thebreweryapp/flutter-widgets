@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'brewery_tab_view_item.dart';
 
-class ScrollableTabView extends StatelessWidget {
+class BreweryTabView extends StatelessWidget {
   final List<BreweryTabViewItem> tabViewList;
   final double elevation;
+  final bool isScrollable;
 
-  const ScrollableTabView({
+  const BreweryTabView({
     Key key,
     @required this.tabViewList,
     this.elevation = 16.0,
+    this.isScrollable = false,
   });
 
   @override
@@ -17,13 +19,13 @@ class ScrollableTabView extends StatelessWidget {
       length: tabViewList.length,
       child: Scaffold(
           appBar: AppBar(
-            elevation: 0.0,
+            elevation: elevation,
             titleSpacing: 0,
             bottom: PreferredSize(
                 child: TabBar(
-                    isScrollable: true,
                     unselectedLabelColor: Colors.white.withOpacity(0.3),
                     indicatorColor: Colors.white,
+                    isScrollable: isScrollable,
                     tabs: createTabs()),
                 preferredSize: Size.fromHeight(30.0)),
           ),
@@ -38,7 +40,7 @@ class ScrollableTabView extends StatelessWidget {
 
     for (final tabViewItem in tabViewList) {
       items.add(Tab(
-        child: Text(tabViewItem.title),
+        child: tabViewItem.tab,
       ));
     }
     return items;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class BreweryTabViewItem {
-  BreweryTabViewItem(String title, Widget view) {
-    this.title = title;
+  BreweryTabViewItem(Widget tab, Widget view) {
+    this.tab = tab;
     this.view = view;
   }
 
-  String title;
+  Widget tab;
   Widget view;
 }
