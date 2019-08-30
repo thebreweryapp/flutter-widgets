@@ -2,6 +2,10 @@ import 'package:brewery_flutter_widget/src/widgets/brewery_card.dart';
 import 'package:flutter/material.dart';
 
 class CardsScreen extends StatelessWidget {
+  final title = 'Sample Title';
+  final description =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra elementum bibendum. Cras viverra, tortor non porta vestibulum, tortor quam venenatis dui, id semper nisi nibh ut velit. Curabitur viverra';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +24,7 @@ class CardsScreen extends StatelessWidget {
               Text('Cover and title'),
               BreweryCard(
                 cover: _getCover,
-                titleText: 'Sample Title',
+                titleText: title,
               ),
             ],
           ),
@@ -30,21 +34,20 @@ class CardsScreen extends StatelessWidget {
               Text('Cover, title and description'),
               BreweryCard(
                 cover: _getCover,
-                titleText: 'Sample Title',
-                descriptionText:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra elementum bibendum. Cras viverra, tortor non porta vestibulum, tortor quam venenatis dui, id semper nisi nibh ut velit. Curabitur viverra',
+                titleText: title,
+                descriptionText: description,
               ),
             ],
           ),
           SizedBox(height: 20.0),
           Column(
             children: <Widget>[
-              Text('Cover, title, description and footer'),
+              Text('Cover with overlay, title, description and footer'),
               BreweryCard(
+                overlayColor: Colors.black.withOpacity(0.5),
                 cover: _getCover,
-                titleText: 'Sample Title',
-                descriptionText:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra elementum bibendum. Cras viverra, tortor non porta vestibulum, tortor quam venenatis dui, id semper nisi nibh ut velit. Curabitur viverra',
+                titleText: title,
+                descriptionText: description,
                 footer: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -84,12 +87,22 @@ class CardsScreen extends StatelessWidget {
                 'Cover with overlay, custom title, custom description and footer',
               ),
               BreweryCard(
-                overlayColor: Colors.black.withOpacity(.30),
+                overlayColor: Colors.black.withOpacity(.5),
                 cover: _getCover,
-                titleText:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                title: Text(
+                  title,
+                  style: TextStyle(
+                    color: Colors.yellow,
+                    fontSize: 30.0,
+                  ),
+                ),
                 description: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pharetra elementum bibendum. Cras viverra, tortor non porta vestibulum, tortor quam venenatis dui, id semper nisi nibh ut velit. Curabitur viverra'),
+                  description,
+                  style: TextStyle(
+                    color: Colors.purple,
+                    fontSize: 15.0,
+                  ),
+                ),
                 footer: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
