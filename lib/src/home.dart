@@ -7,6 +7,7 @@ import 'widgets/brewery_drawer.dart';
 import 'screen/profile_screen.dart';
 import 'screen/icons_screen.dart';
 import 'screen/tabs_screen.dart';
+import 'screen/scrollablelist_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -90,8 +91,17 @@ class HomePageState extends State<HomePage> {
             title: Text('Tabs'),
             onTap: () {
               setState(() {
-                TabsScreen tabsScreen = TabsScreen();
-                highlightWidget = tabsScreen;
+                highlightWidget = TabsScreen();
+              });
+              // Then close the drawer
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Scrollable List'),
+            onTap: () {
+              setState(() {
+                highlightWidget = ScrollableListScreen();
               });
               // Then close the drawer
               Navigator.pop(context);
