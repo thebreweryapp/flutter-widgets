@@ -72,7 +72,7 @@ class _BrewerySearchBarState extends State<BrewerySearchBar> {
         onChanged: widget.onTextChanged,
         onEditingComplete: widget.onEditingComplete,
         onSubmitted: widget.onSubmitted,
-        style: widget.hintStyle ?? textFieldStyle,
+        style: textFieldStyle,
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: hintStyle,
