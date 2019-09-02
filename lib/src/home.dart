@@ -5,12 +5,13 @@ import 'screen/textfields_screen.dart';
 import 'screen/cards_screen.dart';
 import 'screen/profile_screen.dart';
 import 'screen/icons_screen.dart';
+import 'screen/images_screen.dart';
 import 'screen/tabs_screen.dart';
 import 'screen/scrollablelist_screen.dart';
 import 'screen/search_screen.dart';
-import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
 import 'widgets/brewery_searchbar.dart';
+import 'widgets/drawer_header.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -50,6 +51,10 @@ class HomePageState extends State<HomePage> {
     BreweryDrawerItem(
       title: 'Search',
       body: SearchScreen(),
+    ),
+    BreweryDrawerItem(
+      title: 'Images',
+      body: ImagesScreen(),
     ),
   ];
 
