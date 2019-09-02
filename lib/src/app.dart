@@ -22,18 +22,7 @@ class AppState extends State<App> {
     return MaterialApp(
       onGenerateRoute: _routes,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: FutureBuilder<String>(
         future: SharedPreferencesHelper.getToken(),
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -62,14 +51,14 @@ class AppState extends State<App> {
       return MaterialPageRoute(builder: (context) {
         return LoginScreen();
       });
-    } else if (settings.name == Routes.register) {
-      return MaterialPageRoute(builder: (context) {
-        return RegisterScreen();
-      });
     } else if (settings.name == Routes.tabview) {
       return MaterialPageRoute(builder: (context) {
         return RegisterScreen();
       });
     }
+
+    return MaterialPageRoute(builder: (context) {
+      return RegisterScreen();
+    });
   }
 }
