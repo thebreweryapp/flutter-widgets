@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import 'brewery_overlay.dart';
 
 class BreweryCard extends StatelessWidget {
+  final Color color;
   final Widget cover;
   final Text description;
   final String descriptionText;
@@ -16,6 +17,7 @@ class BreweryCard extends StatelessWidget {
   BreweryCard({
     Key key,
     @required this.cover,
+    this.color,
     this.description,
     this.descriptionText,
     this.footer,
@@ -36,6 +38,7 @@ class BreweryCard extends StatelessWidget {
     return Column(
       children: <Widget>[
         Card(
+          color: color,
           elevation: elevation,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

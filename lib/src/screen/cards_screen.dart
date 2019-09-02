@@ -87,6 +87,7 @@ class CardsScreen extends StatelessWidget {
                 'Cover with overlay, custom title, custom description and footer',
               ),
               BreweryCard(
+                color: Colors.black,
                 overlayColor: Colors.black.withOpacity(.5),
                 cover: _getCover,
                 title: Text(
