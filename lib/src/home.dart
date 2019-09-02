@@ -6,6 +6,8 @@ import 'widgets/drawer_header.dart';
 import 'widgets/brewery_drawer.dart';
 import 'screen/profile_screen.dart';
 import 'screen/icons_screen.dart';
+import 'screen/tabs_screen.dart';
+import 'screen/scrollablelist_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,11 +17,15 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   String title = "Brewery";
   Widget highlightWidget = Center(child: Text('Brewery Flutter Widget!'));
+  AppBar appbar = AppBar(
+    title: Text("Brewery"),
+    elevation: 0.0,
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: appbar,
       body: Container(child: highlightWidget),
       drawer: BreweryDrawer(
         drawerHeader: ProfileDrawerHeader(
@@ -76,6 +82,26 @@ class HomePageState extends State<HomePage> {
             onTap: () {
               setState(() {
                 highlightWidget = IconsScreen();
+              });
+              // Then close the drawer
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Tabs'),
+            onTap: () {
+              setState(() {
+                highlightWidget = TabsScreen();
+              });
+              // Then close the drawer
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text('Scrollable List'),
+            onTap: () {
+              setState(() {
+                highlightWidget = ScrollableListScreen();
               });
               // Then close the drawer
               Navigator.pop(context);

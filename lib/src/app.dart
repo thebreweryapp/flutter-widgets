@@ -39,8 +39,8 @@ class AppState extends State<App> {
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
           // if (snapshot.hasData) {
           return HomePage();
-          // }
-          // return LoginScreen();
+          //   }
+          //   return LoginScreen();
         },
       ),
     );
@@ -63,6 +63,10 @@ class AppState extends State<App> {
         return LoginScreen();
       });
     } else if (settings.name == Routes.register) {
+      return MaterialPageRoute(builder: (context) {
+        return RegisterScreen();
+      });
+    } else if (settings.name == Routes.tabview) {
       return MaterialPageRoute(builder: (context) {
         return RegisterScreen();
       });
