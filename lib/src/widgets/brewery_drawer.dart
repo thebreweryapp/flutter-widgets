@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class BreweryDrawer extends StatelessWidget {
   final double elevation;
 
-  final Widget drawerHeader;
-  final List<Widget> drawerItems;
-  final Widget drawerFooter;
+  final Widget header;
+  final List<Widget> items;
+  final Widget footer;
 
   final String semanticLabel;
 
@@ -19,9 +19,9 @@ class BreweryDrawer extends StatelessWidget {
   const BreweryDrawer({
     Key key,
     this.elevation = 16.0,
-    this.drawerHeader,
-    this.drawerItems,
-    this.drawerFooter,
+    this.header,
+    this.items,
+    this.footer,
     this.semanticLabel,
     this.stickyFooter = true,
     this.dividerColor = Colors.grey,
@@ -30,14 +30,12 @@ class BreweryDrawer extends StatelessWidget {
 
   List<Widget> createDrawerListItems() {
     var drawerWidgets = List<Widget>();
-    drawerWidgets.add(drawerHeader);
-    drawerWidgets.addAll(drawerItems);
+    drawerWidgets.add(header);
+    drawerWidgets.addAll(items);
     return drawerWidgets;
   }
 
-  bool shouldShowFooter() {
-    return drawerFooter != null;
-  }
+  bool get _shouldShowFooter => footer != null;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +50,7 @@ class BreweryDrawer extends StatelessWidget {
   List<Widget> _createDrawerItems() {
     var tempDrawerItems = <Widget>[];
 
-    if (shouldShowFooter()) {
+    if (_shouldShowFooter) {
       if (stickyFooter) {
         tempDrawerItems.add(Expanded(
           child: ListView(
@@ -67,19 +65,17 @@ class BreweryDrawer extends StatelessWidget {
             ),
             new Align(
               alignment: Alignment.bottomCenter,
-              child: drawerFooter,
+              child: footer,
             ),
           ],
         ));
       } else {
         var drawerListItems = <Widget>[];
 
-        drawerListItems.add(drawerHeader);
-        drawerListItems.addAll(drawerItems);
-        drawerListItems.add(Divider(
-          height: 1,
-        ));
-        drawerListItems.add(drawerFooter);
+        drawerListItems.add(header);
+        drawerListItems.addAll(items);
+        drawerListItems.add(Divider(height: 1));
+        drawerListItems.add(footer);
 
         tempDrawerItems.add(Expanded(
             child: ListView(

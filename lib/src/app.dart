@@ -1,10 +1,11 @@
-import 'package:brewery_flutter_widget/src/home.dart';
-import 'package:brewery_flutter_widget/src/screen/register_screen.dart';
-import 'package:brewery_flutter_widget/src/util/shared_pref_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import 'screen/home_screen/home_screen.dart';
 import 'screen/login_screen.dart';
+import 'screen/register_screen.dart';
+import 'util/shared_pref_helper.dart';
 import 'routes.dart';
 
 class App extends StatefulWidget {
@@ -26,10 +27,7 @@ class AppState extends State<App> {
       home: FutureBuilder<String>(
         future: SharedPreferencesHelper.getToken(),
         builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          // if (snapshot.hasData) {
-          return HomePage();
-          //   }
-          //   return LoginScreen();
+          return HomeScreen();
         },
       ),
     );
@@ -45,7 +43,7 @@ class AppState extends State<App> {
   Route _routes(RouteSettings settings) {
     if (settings.name == Routes.home) {
       return MaterialPageRoute(builder: (context) {
-        return HomePage();
+        return HomeScreen();
       });
     } else if (settings.name == Routes.login) {
       return MaterialPageRoute(builder: (context) {

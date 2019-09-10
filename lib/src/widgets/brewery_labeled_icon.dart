@@ -4,8 +4,14 @@ class LabeledIcon extends StatelessWidget {
   final IconData iconData;
   final String name;
   final Color color;
+  final TextStyle style;
 
-  const LabeledIcon({this.iconData, this.name, this.color = Colors.black});
+  const LabeledIcon({
+    @required this.iconData,
+    this.name,
+    this.color = Colors.black,
+    this.style,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,11 @@ class LabeledIcon extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(iconData, color: color),
-        Text(name),
+        Text(
+          name,
+          textAlign: TextAlign.center,
+          style: style ?? TextStyle(fontSize: 13.0),
+        ),
       ],
     );
     ;

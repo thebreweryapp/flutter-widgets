@@ -49,6 +49,12 @@ flutter:
     - .env.craft_test_app
     - assets/
     - assets/images/
+    - assets/json/
+  
+  fonts:
+    - family: Consolas
+      fonts:
+        - asset: fonts/Consolas.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

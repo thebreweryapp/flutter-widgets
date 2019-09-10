@@ -3,43 +3,46 @@ import 'package:brewery_flutter_widget/src/widgets/brewery_passwordfield.dart';
 import 'package:flutter/material.dart';
 import 'primary_button.dart';
 
-class BreweryLoginWidget extends StatelessWidget {
+class BreweryLogin extends StatefulWidget {
   final Image logo;
   final usernameHint;
   final ValueChanged<String> usernameOnChangeListener;
   final PasswordChanged passwordOnChangeListener;
-  final VoidCallback submitOnPressed;
-  var usernameController = TextEditingController();
-  var passwordController;
+  final Function(String, String) onSubmit;
 
-  get username => usernameController.text;
-
-  BreweryLoginWidget({
+  BreweryLogin({
     Key key,
     this.logo,
     this.usernameHint,
     this.usernameOnChangeListener,
     this.passwordOnChangeListener,
-    this.submitOnPressed,
+    this.onSubmit,
   });
+  @override
+  State<StatefulWidget> createState() => _BreweryLoginState();
+}
 
-  bool shouldShowImage() {
-    return logo != null;
-  }
+class _BreweryLoginState extends State<BreweryLogin> {
+  var usernameController = TextEditingController();
+  var passwordController;
+
+  get username => usernameController.text;
+
+  bool get _shouldShowImage => widget.logo != null;
 
   @override
   Widget build(BuildContext context) {
     var logoImage;
-    if (shouldShowImage()) {
-      logoImage = new Container(
+    if (_shouldShowImage) {
+      logoImage = Container(
         width: 80.0,
         height: 80.0,
       );
     } else {
-      logoImage = new Container(
+      logoImage = Container(
         width: 80.0,
         height: 80.0,
-        decoration: new BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.blue,
         ),
@@ -49,32 +52,40 @@ class BreweryLoginWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(20),
       child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            logoImage,
-            Container(
-                width: 300,
-                margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
-                child: TextField(
-                  onChanged: usernameOnChangeListener,
-                  controller: usernameController,
-                  decoration: InputDecoration(
-                      border: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFCFD8DC))),
-                      hintText: usernameHint),
-                  cursorColor: Color(0xFF000000),
-                )),
-            Container(
-              width: 300,
-              margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
-              child: BreweryPasswordField(
-                  passwordOnChangeListener: passwordOnChangeListener),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          logoImage,
+          Container(
+            width: 300,
+            margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
+            child: TextField(
+              onChanged: widget.usernameOnChangeListener,
+              controller: usernameController,
+              decoration: InputDecoration(
+                border: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFCFD8DC))),
+                hintText: widget.usernameHint,
+              ),
+              cursorColor: Color(0xFF000000),
             ),
-            PrimaryButton(
-                minWidth: double.infinity,
-                onPressed: submitOnPressed,
-                text: 'Login'),
-          ]),
+          ),
+          Container(
+            width: 300,
+            margin: EdgeInsets.only(top: 20.0, bottom: 10.0),
+            child: BreweryPasswordField(
+              passwordOnChangeListener: widget.passwordOnChangeListener,
+            ),
+          ),
+          PrimaryButton(
+            minWidth: double.infinity,
+            onPressed: widget.onSubmit(
+              usernameController.text,
+              passwordController.text,
+            ),
+            text: 'Login',
+          ),
+        ],
+      ),
     );
   }
 }

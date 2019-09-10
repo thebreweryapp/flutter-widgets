@@ -4,29 +4,34 @@ class SingleLineItemData {
   final Image image;
   final String title;
 
-  SingleLineItemData({this.image, @required this.title});
+  SingleLineItemData({
+    this.image,
+    @required this.title,
+  });
 }
 
 class SingleLineItem extends StatelessWidget {
-  final SingleLineItemData singleLineItemData;
+  final SingleLineItemData items;
 
-  const SingleLineItem({@required this.singleLineItemData});
+  const SingleLineItem({
+    @required this.items,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        new Container(
+        Container(
           margin: EdgeInsets.all(15),
           width: 20.0,
           height: 20.0,
-          decoration: new BoxDecoration(
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Color(0xFFD5D5D5),
           ),
         ),
-        new Text(
-          singleLineItemData.title,
+        Text(
+          items.title,
           style: TextStyle(fontSize: 16, color: Color(0xFF000000)),
         )
       ],

@@ -23,7 +23,7 @@ class LoginState extends State<LoginScreen> {
               'CRAFT',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
             ),
-            BreweryLoginWidget(
+            BreweryLogin(
               usernameHint: "Username",
               usernameOnChangeListener: (text) {
                 _username = text;
@@ -31,9 +31,8 @@ class LoginState extends State<LoginScreen> {
               passwordOnChangeListener: (text) {
                 _password = text;
               },
-              submitOnPressed: () {
+              onSubmit: (username, password) {
                 login(context);
-                // Navigator.pushNamed(context, Routes.home);
               },
             ),
             Text('No account yet?'),
