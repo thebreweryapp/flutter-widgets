@@ -1,8 +1,8 @@
 name: brewery
-description: Unofficial Brewery widgets plugin.
-version: 0.0.1+1
+description: Official Brewery widgets plugin.
+version: 0.0.1+2
 author: Mylene Bayan <spmbayan@stratpoint.com>
-homepage: https://github.com/spmbayan/brewery
+homepage: https://gitlab.stratpoint.dev/thebrewery/brewery-flutter-widget
 
 environment:
   sdk: ">=2.3.0 <3.0.0"

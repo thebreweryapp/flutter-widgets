@@ -1,6 +1,6 @@
 # brewery (Technical Preview)
 
-Unofficial Brewery widgets plugin.
+The official Brewery widgets package.
 
 ## Get started
 
@@ -8,7 +8,7 @@ Unofficial Brewery widgets plugin.
 
 ```yaml
 dependencies:
-  brewery: 0.0.1+1 #latest version
+  brewery: ^0.0.1+2 #latest version
 ```
 
 ## Copyright & License
