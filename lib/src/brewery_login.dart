@@ -24,7 +24,7 @@ class BreweryLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: <Widget>[
         if (header != null) header,
         BreweryUsernameField(
